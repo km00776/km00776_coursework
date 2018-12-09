@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+
+.album {
+  height: 350px;
+  width: 250px;
+}

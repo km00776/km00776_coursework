@@ -15,6 +15,7 @@
   <tbody>
     <% @albums.each do |album| %>
       <tr>
+        <td><%= image_tag album.image.url(:medium), class: "album" %></td>
         <td><%= album.title %></td>
         <td><%= album.description %></td>
         <td><%= album.artist %></td>
