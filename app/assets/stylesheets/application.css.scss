@@ -14,8 +14,15 @@
  *= require_self
  */
 
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
 .album {
   height: 350px;
   width: 250px;
+}
+
+.album-show {
+  height: 475px;
+  width: 325px;
 }
