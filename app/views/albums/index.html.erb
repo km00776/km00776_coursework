@@ -1,32 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% if !user_signed_in? %>
+<div class="jumbotron">
+  <h1> Your favourite albums reviewed </h1>
+  <p> Hashtag oeowqeowqoe qwoehqoehoqoheoh qeowqoe oqoeoq oeoqoqeo. </p>
 
-<h1>Listing Albums</h1>
+  <p><%= link_to "Sign Up to write a review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Artist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ <div class="row">
+   <% @albums.each do |album| %>
+   <div class="col-sm-6" col-md-3">
+     <div class="album-show">
+       <a href="/albums/<%= album.id %>">
+       <%= image_tag album.image.url(:medium), class: 'album-show' %>
+       </a>
+     </div>
+   </div>
 
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= image_tag album.image.url(:medium), class: "album" %></td>
-        <td><%= album.title %></td>
-        <td><%= album.description %></td>
-        <td><%= album.artist %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Album', new_album_path %>
+     <% end %>
+     </div>
