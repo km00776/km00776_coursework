@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /reviews
   # GET /reviews.json
   def index
@@ -25,6 +25,8 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
+    @review.user_id = current_user.id
+
     if @review.save
       redirect_to @review
     else
@@ -43,6 +45,7 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1.json
   def destroy
     @review.destroy
+    redirect_to root_path
   end
 
   private
