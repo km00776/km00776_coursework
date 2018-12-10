@@ -6,10 +6,9 @@
   <p><%= link_to "Sign Up to write a review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
   </div>
 <% end %>
-
  <div class="row">
    <% @albums.each do |album| %>
-   <div class="col-sm-6" col-md-3">
+   <div class="col-sm-2 col-md-4">
      <div class="album-show">
        <a href="/albums/<%= album.id %>">
        <%= image_tag album.image.url(:medium), class: 'album-show' %>
