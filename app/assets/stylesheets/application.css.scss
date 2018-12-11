@@ -20,6 +20,11 @@
 .album {
   height: 350px;
   width: 250px;
+
+border: 1px solid #ddd;
+ border-radius: 4px;
+ padding: 5px;
+  
 }
 
 .album-show {
@@ -42,4 +47,6 @@ body {
   .star-rating {
     padding-bottom: 8px;
   }
+
+
 }

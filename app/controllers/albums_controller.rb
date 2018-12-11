@@ -10,7 +10,13 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @reviews = Review.where(album_id: @album.id).order("created_at DESC")
+    if @review.blank?
+      @avg_review = 0
+    else
+      @avg_review = @reviews.average(:rating).round(2)
   end
+end
 
   # GET /albums/new
   def new
